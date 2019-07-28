@@ -24,6 +24,8 @@ public class RandomNumberGeneratorTest {
         try{
             randomNumber = randomNumberGenerator.getRandomNumber();
             Assert.assertNotNull(randomNumber);
+            Assert.assertEquals(200,randomNumberGenerator.status);
+            Assert.assertNotEquals(0,randomNumber.getLength());
         }
         catch( MalformedURLException me){
             throw new MalformedURLException("throwing malformed exception" + me);

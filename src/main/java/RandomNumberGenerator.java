@@ -11,27 +11,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RandomNumberGenerator {
-    //1. set the connection
-    //2. set the incoming data to a variable
-    //3. produce the randomness to a certain range.
+
     Map<String,String> queryParameters = new HashMap<String, String>();
-    private  final String USER_AGENT = "Mozilla/5.0";
-    int status;
-    JSONObject finalResult;
+    public int status;
 
     public RandomNumber getRandomNumber() throws MalformedURLException , IOException{
         try {
             queryParameters.put("length","100");
             queryParameters.put("type","uint8");
-            URL url = new URL("https://qrng.anu.edu.au/API/jsonI.php");
+            URL url = new URL("https://qrng.anu.edu.au/API/jsonI.php?"+QueryParameterStringBuilder.getParamString(queryParameters));
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setDoOutput(true);
             connection.setRequestProperty("Content-type","application/json");
-            connection.setRequestProperty("User-agent",USER_AGENT);
-//            connection.setReadTimeout(5000);
-//            connection.setConnectTimeout(5000);
-
             connection.connect();
 
             status = connection.getResponseCode();
