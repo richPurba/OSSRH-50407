@@ -6,15 +6,24 @@
 
     <groupId>com.richpurba.libraries</groupId>
     <artifactId>randomgen</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
 
+    <name>Random number generator from Australia National University</name>
+    <description>An api to produce a truly random number generator</description>
+    <url>https://qrng.anu.edu.au/</url>
+    <developers>
+        <developer>
+            <name>richpurba</name>
+            <email>richard.t.purba@gmail.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com:richPurba/randomnumberlib.git</connection>
+        <developerConnection>scm:git:ssh://github.com:richPurba/randomnumberlib.git</developerConnection>
+        <url>https://github.com/richPurba/randomnumberlib.git</url>
+    </scm>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.json/json -->
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20180813</version>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
