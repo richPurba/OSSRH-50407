@@ -4,7 +4,7 @@
 
     <groupId>io.github.richpurba.libraries</groupId>
     <artifactId>randomgen</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Random number generator from Australia National University</name>
