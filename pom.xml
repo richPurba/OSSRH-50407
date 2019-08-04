@@ -18,10 +18,16 @@
             <email>richard.t.purba@gmail.com</email>
         </developer>
     </developers>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
     <scm>
-        <connection>scm:git:git://github.com:richPurba/randomnumberlib.git</connection>
-        <developerConnection>scm:git:ssh://github.com:richPurba/randomnumberlib.git</developerConnection>
-        <url>https://github.com/richPurba/randomnumberlib.git</url>
+        <connection>scm:git:git://github.com:richPurba/OSSRH-50407.git</connection>
+        <developerConnection>scm:git:ssh://github.com:richPurba/OSSRH-50407.git</developerConnection>
+        <url>https://github.com/richPurba/OSSRH-50407.git</url>
     </scm>
     <dependencies>
         <dependency>
@@ -53,6 +59,13 @@
             <id>ossrh</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
+        <!-- Alternatively, if we want to use maven-deploy-plugin, we can use the below configuration  -->
+<!--        <repository>-->
+
+<!--            <id>ossrh</id>-->
+<!--            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>-->
+<!--        </repository>-->
+
     </distributionManagement>
     <build>
         <plugins>
@@ -67,6 +80,12 @@
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
+<!--            the below if we use maven deploy plugin-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-deploy-plugin</artifactId>-->
+<!--                <version>3.0.0-M1</version>-->
+<!--            </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -77,6 +96,24 @@
                         <id>attach-sources</id>
                         <goals>
                             <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
